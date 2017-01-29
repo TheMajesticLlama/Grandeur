@@ -1,0 +1,257 @@
+body {
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+  background-color: #D4BC92;
+  font-family: Inconsolata, Serif;
+}
+
+#menu {
+  text-align: center;
+}
+
+.setting {
+  font-size: 20pt;
+}
+
+.setting input {
+  width: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #BABABA;
+  font-size: 15pt;
+}
+
+.setting input:focus {
+  outline: none;
+}
+
+#game {
+  text-align: center;
+  display: none;
+  margin: auto;
+
+  user-select: none;
+  -moz-user-select: none;
+}
+
+#board {
+  border-right: 1px solid BLACK;
+  border-left: 1px solid BLACK;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 318px;
+}
+
+#instructions {
+  text-shadow: none;
+}
+
+#instructions h6 {
+  font-size: 11pt;
+  font-weight: normal;
+  margin: 8px;
+}
+
+#instructions p {
+  margin: 2px;
+}
+
+#player-area {
+  padding-left: 10px;
+}
+
+#players_list:first-child div p {
+  margin-top: 0px;
+}
+
+.tile {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: WHITE;
+  border: 2px solid BLACK;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.tilesmall {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 15pt;
+}
+
+.flipcard {
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.flipcard-tier {
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  border-radius: 5px;
+  background-color: WHITE;
+}
+
+.row3 {
+  border: 2px solid #92BDD4;
+  background-color: #92BDD4;
+}
+
+.row2 {
+  border: 2px solid #DDE332;
+  background-color: #DDE332;
+}
+
+.row1 {
+  border: 2px solid #92D49B;
+  background-color: #92D49B;
+}
+
+.card {
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+  background-color: WHITE;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cardmove {
+  margin-right: 0px;
+}
+
+.cardsmall {
+  width: 25px;
+  height: 35px;
+  margin: 5px;
+  border-radius: 5px;
+  vertical-align: top;
+  font-size: 15pt;
+  cursor: default;
+}
+
+.color_score {
+  width: 50px;
+  height: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.cardprice {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 10px;
+  font-size: 12pt;
+}
+
+.token {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 15px;
+  font-size: 15pt;
+  cursor: pointer;
+}
+
+.token p {
+  margin-top: 3px;
+}
+
+.tokensmall {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  border-radius: 12px;
+  vertical-align: top;
+  text-align: center;
+  font-size: 15pt;
+  cursor: default;
+}
+
+.tilescore {
+  width: 21px;
+  height: 21px;
+  margin: 2px;
+}
+
+.tileprice {
+  width: 21px;
+  height: 21px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.name_score {
+  font-size: 15pt;
+  overflow: hidden;
+}
+
+#moves {
+  width: 150px;
+  height: 400px;
+  padding-right: 15px;
+  text-align: right;
+}
+
+.move p {
+  font-size: 15pt;
+  margin-bottom: 10px;
+}
+
+.movestitle {
+  font-size: 18pt;
+  margin-top: 0px;
+}
+
+#checkmark {
+  cursor: pointer;
+}
+
+.move {
+  border-bottom: 1px solid BLACK;
+}
+
+.move:last-child {
+  border-bottom: 0px;
+}
+
+.move div {
+
+}
+
+.move div p {
+  margin: 5px;
+  vertical-align: top;
+  font-size: 15pt;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+#reserve_area {
+  height: 105px;
+  width: 200px;
+  background-color: #EBCFA0;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#reserve_area p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}

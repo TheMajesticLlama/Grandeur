@@ -506,7 +506,7 @@ var Game = {
         //If necessary, remove tokens from the player
         var price = Game.Logic.card_price;
         if (document.getElementById('moves').children[1].moveType == 'reserve_buy') price = Game.Logic.wild_card_buying_price;
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 6; i++) {
           var player_token = document.getElementById('player_' + (current_player_num + 1) + '-token-' + i);
           player_token.number_tokens -= price[i];
           player_token.number_full -= price[i];
@@ -814,11 +814,16 @@ var Game = {
         for (var i = 0; i < 5; i++) {
           var player_token = document.getElementById('player_' + (current_player_num + 1) + '-token-' + i);
           if (player_token.number_full >= card.info.price[i]) {
-            //canBuy = true;
             Game.Logic.card_price[i] = card.info.price[i] - player_token.number_cards;
             if (Game.Logic.card_price[i] < 0) Game.Logic.card_price[i] = 0;
           } else {
-            canBuy = false;
+            var number_wilds = document.getElementById('player_1-token-5').number_tokens - Game.Logic.card_price[5];
+            if (player_token.number_full + number_wilds >= card.info.price[i]) {
+                Game.Logic.card_price[i] = player_token.number_tokens;
+                Game.Logic.card_price[5] += card.info.price[i] - player_token.number_full;
+            } else {
+                canBuy = false;
+            }
           }
         }
 
@@ -882,11 +887,16 @@ var Game = {
         for (var i = 0; i < 5; i++) {
           var player_token = document.getElementById('player_' + (current_player_num + 1) + '-token-' + i);
           if (player_token.number_full >= card.info.price[i]) {
-            //canBuy = true;
             Game.Logic.wild_card_buying_price[i] = card.info.price[i] - player_token.number_cards;
             if (Game.Logic.wild_card_buying_price[i] < 0) Game.Logic.wild_card_buying_price[i] = 0;
           } else {
-            canBuy = false;
+            var number_wilds = document.getElementById('player_1-token-5').number_tokens - Game.Logic.wild_card_buying_price[5];
+            if (player_token.number_full + number_wilds >= card.info.price[i]) {
+                Game.Logic.wild_card_buying_price[i] = player_token.number_tokens;
+                Game.Logic.wild_card_buying_price[5] += card.info.price[i] - player_token.number_full;
+            } else {
+                canBuy = false;
+            }
           }
         }
 

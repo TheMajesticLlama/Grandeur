@@ -1,5 +1,5 @@
 var Menu = {
-  players: 3,
+  players: 2,
   finalscore: 15,
 
   startGame: function() {

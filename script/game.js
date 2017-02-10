@@ -8,6 +8,7 @@ var Game = {
     Game.finalscore = finalscore;
     Game.Board.initialize(players);
     Game.PlayerArea.initialize(players);
+    AI.Players.initialize();
     Game.Logic.startGame();
   },
 
@@ -98,7 +99,6 @@ var Game = {
           card = Game.Board.Card.row3[Game.Board.Card.row3num];
           Game.Board.Card.row3num++;
         }
-        console.log(row + ", " + Game.Board.Card.row1[0]);
         return card;
       },
 
@@ -553,6 +553,10 @@ var Game = {
           }
         }
 
+        var score = document.getElementById('player_1').children[0].children[1].innerHTML;
+        console.log('SCORE: : : : ' + parseInt(score) + ', ' + card.info.score);
+        document.getElementById('player_1').children[0].children[1].innerHTML = parseInt(score) + card.info.score;
+
         Game.Logic.changeTurn();
       } else if (document.getElementById('moves').children[1].moveType == 'reserve') {
         var move = document.getElementById('moves').children[1];
@@ -655,10 +659,12 @@ var Game = {
     },
 
     executeTurn: function(num) {
-      console.log('num: ' + num);
-      if (num == 0) Game.Moves.create(0);
-      else {
+      if (num == 0) {
+        Game.Moves.create(0);
+        console.log('It is the player\'s turn now');
+      } else {
         Game.Moves.create(num);
+        AI.Players.list[num - 1].takeTurn();
         Game.Logic.changeTurn();
       }
     },
@@ -767,7 +773,6 @@ var Game = {
 
     removeToken(color) {
       Game.Logic.num_tokens_total--;
-      console.log(Game.Logic.num_tokens_total);
       if (color == 'red') {
         Game.Logic.num_tokens[0]--;
         document.getElementById('token-red').firstChild.innerHTML = parseInt(document.getElementById('token-red').firstChild.innerHTML) + 1;
@@ -846,7 +851,7 @@ var Game = {
 
     buyWildToken(token) {
       if (Game.Logic.wild_token_buying_enabled && Game.Logic.current_player_num == 0) {
-        if (document.getElementById('player_1-token-5').number_tokens >= 3) return;
+        if (document.getElementById('player_1-token-5').number_cards >= 3) return;
         if (document.getElementById('player_1').number_tokens >= 10) return;
 
         token.firstChild.innerHTML = parseInt(token.firstChild.innerHTML) - 1;
